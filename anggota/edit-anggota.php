@@ -10,7 +10,8 @@ if (empty($_SESSION['username'])) {
 
     <head>
         <meta charset="UTF-8">
-        <title>Perpus Online</ti3ximum-scale=1, user-scalable=no' name='viewport'>
+        <title>Perpus Online</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <meta name="description" content="Hakko Bio Richard">
         <meta name="keywords" content="Perpus, Website, Aplikasi, Perpustakaan, Online">
         <!-- bootstrap 3.0.2 -->
@@ -56,7 +57,7 @@ if (empty($_SESSION['username'])) {
         <header class="header">
             <a href="index.php" class="logo">
                 Perpus Online
-   3tyle can be found in header.less -->
+                </a>
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->
                 <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -118,7 +119,11 @@ if (empty($_SESSION['username'])) {
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div>
-                        <center><img src="<?php echo $_SESSION['foto']; ?>" height="80" width="80" class="img-circle" alt="User Image" style="border: 3px solid white;" /></center>
+                    <?php
+                    $query = mysqli_query($conn, "SELECT * FROM data_anggota WHERE id='$_SESSION[id]'");
+                    $data1  = mysqli_fetch_array($query);
+                    ?>
+                        <center><img src="<?php echo $data1['foto']; ?>" height="80" width="80" class="img-circle" alt="User Image" style="border: 3px solid white;" /></center>
                     </div>
                     <div class="info">
                         <center>
